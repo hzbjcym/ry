@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<!-- WEB应用名称 -->
+	<display-name>ry</display-name>
+	<!-- WEB应用描述 -->
+	<description>带注解的spring示例</description>
+	
+	<!-- web.xm组件加载顺序为：context-param(上下文参数) -> listener(监听器) -> filter(过滤器) -> servlet(应用程序)(同类则按编写顺序执行) -->
+	<!-- 指定spring配置文件位置,contextConfigLocation 参数定义了要装入的 Spring 配置文件。 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath*:spring/spring-*.xml</param-value>
+	</context-param>
+
+	<!-- 该监听器将在Web容器启动时激活Spring -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- 处理由JavaBeans,Introspector的使用而引起的缓冲泄露,建议配置此监听器 -->
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+
+	<!-- Spring字符编码过滤器 -->
+	<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<!-- 指定request的字符编码 -->
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<!-- 指定response的字符编码 -->
+		<init-param>  
+	       <param-name>forceEncoding</param-name>  
+	       <param-value>true</param-value>  
+		</init-param> 
+	</filter>
+	<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!--Spring MVC 配置及设置 -->
+	<servlet>
+		<!-- servlet的名称 -->
+		<servlet-name>spring mvc</servlet-name>
+		<!-- servlet类的地址 -->
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath*:spring/mvc-servlet.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<!-- 根据servlet的名称配置相应组件的访问路径 -->
+	<servlet-mapping>
+		<servlet-name>spring mvc</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!-- 欢迎及错误页面设置 -->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<error-page>
+       <error-code>404</error-code>
+       <location>/error.jsp</location>
+	</error-page>
+	<error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/error.jsp</location>
+   	</error-page>
+</web-app>
