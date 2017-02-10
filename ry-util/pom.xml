@@ -5,11 +5,5 @@
     <artifactId>ry</artifactId>
     <version>1.0</version>
   </parent>
-  <artifactId>ry-core</artifactId>
-  <packaging>pom</packaging>
-  <name>ry-core</name>
-  <modules>
-  	<module>ry-core-user</module>
-  	<module>ry-util</module>
-  </modules>
+  <artifactId>ry-util</artifactId>
 </project>

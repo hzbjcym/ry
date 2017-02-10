@@ -3,13 +3,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-
-	<!-- WEB应用名称 -->
+	<!-- WEB应用名称及描述 -->
 	<display-name>ry</display-name>
-	<!-- WEB应用描述 -->
 	<description>带注解的spring示例</description>
+	<!-- web.xm组件加载顺序为：context-param(上下文参数) 
+						-> listener(监听器) 
+						-> filter(过滤器) 
+						-> servlet(应用程序)(同类则按编写顺序执行) -->
 	
-	<!-- web.xm组件加载顺序为：context-param(上下文参数) -> listener(监听器) -> filter(过滤器) -> servlet(应用程序)(同类则按编写顺序执行) -->
+	
 	<!-- 指定spring配置文件位置,contextConfigLocation 参数定义了要装入的 Spring 配置文件。 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
@@ -61,6 +63,16 @@
 	<servlet-mapping>
 		<servlet-name>spring mvc</servlet-name>
 		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- webservice的配置 -->
+	<servlet>
+		<servlet-name>CXFServlet</servlet-name>
+		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CXFServlet</servlet-name>
+		<url-pattern>/services/*</url-pattern>
 	</servlet-mapping>
 	
 	

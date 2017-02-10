@@ -9,6 +9,7 @@
 	<modules>
 		<module>ry-core</module>
 		<module>ry-web</module>
+		<module>ry-webservice</module>
 	</modules>
 
 	<properties>
