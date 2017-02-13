@@ -7,4 +7,28 @@
         http://cxf.apache.org/jaxws   
         http://cxf.apache.org/schemas/jaxws.xsd">
 	<import resource="classpath:META-INF/cxf/cxf.xml" />
-	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />  
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+	
+	<bean id="inInterceptor" class="com.ym.base.interceptor.WebserviceInterceptor">
+		<constructor-arg  value="pre-invoke"/>
+	</bean>
+	
+	<!-- 写法A --> 
+	<jaxws:endpoint id="webservice"
+		implementor="com.ym.ws.TestWebServiceImpl" address="/TestService">
+<!-- 		publishedEndpointUrl="http://service.zcpal.com/services/mipBaseInterface" -->
+		<!-- 接口传入拦截器 -->
+		<jaxws:inInterceptors>
+			<ref bean="inInterceptor" />
+		</jaxws:inInterceptors>
+	</jaxws:endpoint>
+	
+	<!-- 写法B -->
+	<jaxws:server id="webserviceSC" 
+			serviceBean="com.ym.ws.AnotherTestWebServiceImpl" 
+			serviceClass="com.ym.ws.AnotherWebServiceTest" address="/TestServiceSC"> 
+		<jaxws:inInterceptors>
+			<ref bean="inInterceptor" />
+		</jaxws:inInterceptors>
+    </jaxws:server> 
+</beans>

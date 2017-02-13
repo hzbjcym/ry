@@ -10,6 +10,6 @@
   <name>ry-core</name>
   <modules>
   	<module>ry-core-user</module>
-  	<module>ry-util</module>
+  	<module>../ry-util</module>
   </modules>
 </project>

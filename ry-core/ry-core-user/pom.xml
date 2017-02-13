@@ -6,4 +6,12 @@
     <version>1.0</version>
   </parent>
   <artifactId>ry-core-user</artifactId>
+  
+  <dependencies>
+		<dependency>    
+			<groupId>com.ym</groupId>
+			<artifactId>ry-webservice</artifactId>
+			<version>1.0</version>
+		</dependency>
+	</dependencies>
 </project>

@@ -14,11 +14,6 @@
 	<dependencies>
 		<dependency>    
 			<groupId>com.ym</groupId>
-			<artifactId>ry-core-user</artifactId>
-			<version>1.0</version>
-		</dependency>
-		<dependency>    
-			<groupId>com.ym</groupId>
 			<artifactId>ry-util</artifactId>
 			<version>1.0</version>
 		</dependency>

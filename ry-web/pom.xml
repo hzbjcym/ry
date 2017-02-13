@@ -21,6 +21,12 @@
 			<version>1.0</version>
 		</dependency>
 		
+		<dependency>
+			<groupId>com.ym</groupId>
+			<artifactId>ry-util</artifactId>
+			<version>1.0</version>
+		</dependency>
+		
 		<!-- WebService -->
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
@@ -35,7 +41,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>ry</finalName>
+		<finalName>ry-web</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>

@@ -12,6 +12,7 @@ import org.apache.cxf.phase.Phase;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import com.ym.EncryptUtil;
 import com.ym.PropertyUtil;
 
 /**
@@ -44,8 +45,8 @@ public class WebserviceInterceptor extends AbstractPhaseInterceptor<SoapMessage>
 			NodeList userIdNode = element.getElementsByTagName("秘钥");
 			
 			String encryptCode = EncryptUtil.decrypt(userIdNode.item(0).getTextContent());
-			// TODO 判断加密内容
-			String systemCode = PropertyUtil.getEncryptCode();
+			// XXX 判断加密内容
+			String systemCode = PropertyUtil.getProperty("EncryptCode");
 			if (!systemCode.equalsIgnoreCase(encryptCode)) {
 				throw new Fault(new SOAPException("SOAP消息头错误,异常调用"));
 			}
