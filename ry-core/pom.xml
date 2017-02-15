@@ -10,6 +10,12 @@
   <name>ry-core</name>
   <modules>
   	<module>ry-core-user</module>
-  	<module>../ry-util</module>
   </modules>
+  <dependencies>
+  		<dependency>    
+			<groupId>com.ym</groupId>
+			<artifactId>ry-util</artifactId>
+			<version>1.0</version>
+		</dependency>
+  </dependencies>
 </project>
