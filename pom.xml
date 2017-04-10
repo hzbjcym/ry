@@ -10,6 +10,7 @@
 		<module>ry-core</module>
 		<module>ry-web</module>
 		<module>ry-webservice</module>
+		<module>ry-commons</module>
 	</modules>
 
 	<properties>
@@ -28,14 +29,14 @@
 		</dependency>
 		<!-- Spring mvc -->
 		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-webmvc</artifactId>
-		    <version>${spring-version}</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring-version}</version>
 		</dependency>
 		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-tx</artifactId>
-		    <version>${spring-version}</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring-version}</version>
 		</dependency>
 
 		<!-- tomcat-jsp-api -->
@@ -59,13 +60,33 @@
 		</dependency>
 		<!-- log4j -->
 		<dependency>
-		    <groupId>log4j</groupId>
-		    <artifactId>log4j</artifactId>
-		    <version>1.2.17</version>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		<!-- commons-httpclient -->
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
 		</dependency>
 		
 	</dependencies>
-
+	<repositories>
+		<repository>
+			<!-- Maven 自带的中央仓库使用的Id为central 如果其他的仓库声明也是用该Id 就会覆盖中央仓库的配置 -->
+			<id>ryrepository</id>
+			<name>ryrepository</name>
+			<url>http://211.155.229.72:8084/nexus-2.8.1-01/content/groups/ZC/</url>
+			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 	<!-- 设置局部的jdk -->
 	<build>
 		<plugins>

@@ -10,7 +10,13 @@
         <dependent-module archiveName="ry-webservice-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ry-webservice/ry-webservice">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <property name="context-root" value="ry"/>
+        <dependent-module archiveName="ry-commons-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ry-commons/ry-commons">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ry-util-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ry-util/ry-util">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/ry-web/target/classes"/>
+        <property name="context-root" value="ry-web"/>
     </wb-module>
 </project-modules>
